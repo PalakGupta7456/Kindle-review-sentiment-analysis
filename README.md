@@ -27,3 +27,74 @@ Inspiration
 - Fake reviews/ outliers.
 - Best rated product IDs, or similarity between products based on reviews alone (not the best idea ikr).
 - Any other interesting analysis
+
+
+
+
+ ## Kindle Review Sentiment Analysis using Word2Vec and XGBoost (Tuned)
+
+# Project Overview
+
+This project performs sentiment analysis on Kindle Reviews using Word2Vec embeddings and an improved XGBoost model with RandomizedSearchCV for hyperparameter tuning.
+
+# Dataset Description
+
+Dataset: Kindle Reviews Dataset
+
+Key Columns: reviewText (text data), overall (rating)
+
+Sentiment Mapping: Ratings ≥ 4 are treated as Positive (1), otherwise Negative (0)
+
+# Project Workflow
+
+# 1. Data Preprocessing
+
+✅ Removal of special characters and numbers✅ Conversion to lowercase✅ Stopword removal✅ Lemmatization for improved word generalization✅ Rare word removal for noise reduction
+
+# 2. Word2Vec Model Training
+
+vector_size=200
+
+window=7
+
+min_count=3
+
+epochs=20
+
+# 3. Feature Extraction
+
+Averaged Word2Vec vectors for each review are used as features.
+
+# 4. Hyperparameter Tuning (XGBoost)
+
+Used RandomizedSearchCV for faster optimization
+
+Key tuned parameters:
+
+n_estimators: [100, 200, 300]
+
+max_depth: [3, 5, 7]
+
+learning_rate: [0.01 – 0.3]
+
+subsample: [0.7, 0.8, 1.0]
+
+colsample_bytree: [0.7, 0.8, 1.0]
+
+# 5. Model Training & Evaluation
+
+Tuned model achieved 80.4% accuracy on the test set.
+
+📈 Results
+
+Model
+
+Accuracy
+
+Baseline Word2Vec
+
+75%
+
+Enhanced Word2Vec (Tuned XGBoost)
+
+80.4%
